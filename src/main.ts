@@ -140,7 +140,7 @@ const webProjects: WebProject[] = [
       <a href="#websites">Websites</a>
       <a href="#skills">Skills</a>
     </nav>
-    <a class="header-action" href="/CV.html" download="Diego-Arguera-CV.html">Download CV</a>
+    <a class="header-action" href="assets/DIEGO-ARGUERA - RESUME.pdf" _target="blank">View Resume</a>
   </header>
 
   <main id="top">
