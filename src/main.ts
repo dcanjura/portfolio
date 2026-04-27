@@ -129,7 +129,6 @@ const webProjects: WebProject[] = [
   standalone: true,
   imports: [CommonModule],
   template: `
-  <h1 style="color: red">TEST ANGULAR</h1>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Diego Arguera home">
       <span>DA</span>
