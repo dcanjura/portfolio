@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import 'zone.js';
 
 type Experience = {
   period: string;
@@ -128,6 +129,7 @@ const webProjects: WebProject[] = [
   standalone: true,
   imports: [CommonModule],
   template: `
+  <h1 style="color: red">TEST ANGULAR</h1>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Diego Arguera home">
       <span>DA</span>
@@ -323,4 +325,6 @@ export class AppComponent {
   }
 }
 
-bootstrapApplication(AppComponent).catch((error) => console.error(error));
+bootstrapApplication(AppComponent)
+  .then(() => console.log('ANGULAR OK'))
+  .catch(err => console.error('ERROR:', err));
