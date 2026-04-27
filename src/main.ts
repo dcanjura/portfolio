@@ -140,7 +140,7 @@ const webProjects: WebProject[] = [
       <a href="#websites">Websites</a>
       <a href="#skills">Skills</a>
     </nav>
-    <a class="header-action" href="assets/DIEGO-ARGUERA - RESUME.pdf" _target="blank">View Resume</a>
+    <a class="header-action" href="/diego-arguera-resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
   </header>
 
   <main id="top">
@@ -155,7 +155,7 @@ const webProjects: WebProject[] = [
           </p>
           <div class="hero-actions">
             <a class="button primary" href="mailto:diegoac053@gmail.com">Let's talk</a>
-            <a class="button secondary" href="/CV.html" download="Diego-Arguera-CV.html">Download CV</a>
+            <a class="header-action" href="/diego-arguera-resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
           </div>
         </div>
 
