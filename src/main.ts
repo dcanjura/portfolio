@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 type Experience = {
   period: string;
@@ -125,6 +126,7 @@ const webProjects: WebProject[] = [
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [CommonModule],
   template: `
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Diego Arguera home">
