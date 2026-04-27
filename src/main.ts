@@ -126,221 +126,176 @@ const webProjects: WebProject[] = [
   selector: 'app-root',
   standalone: true,
   template: `
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Diego Arguera home">
-        <span>DA</span>
-        <strong>Diego Arguera</strong>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#websites">Websites</a>
-        <a href="#skills">Skills</a>
-      </nav>
-      <a class="header-action" href="/CV.html" download="Diego-Arguera-CV.html">Download CV</a>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Diego Arguera home">
+      <span>DA</span>
+      <strong>Diego Arguera</strong>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#websites">Websites</a>
+      <a href="#skills">Skills</a>
+    </nav>
+    <a class="header-action" href="/CV.html" download="Diego-Arguera-CV.html">Download CV</a>
+  </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="intro-title">
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <p class="eyebrow">Java Backend Developer / Angular Engineer</p>
-            <h1 id="intro-title">Building reliable backend systems for enterprise workflows.</h1>
-            <p class="hero-text">
-              I'm Diego Arguera, a Software Engineer focused on Java, Spring Boot, REST APIs,
-              validation workflows, and Angular applications for business-critical platforms.
-            </p>
-            <div class="hero-actions" aria-label="Primary actions">
-              <a class="button primary" href="mailto:diegoac053@gmail.com">Let's talk</a>
-              <a class="button secondary" href="/CV.html" download="Diego-Arguera-CV.html">Download CV</a>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Java Backend Developer / Angular Engineer</p>
+          <h1>Building reliable backend systems for enterprise workflows.</h1>
+          <p class="hero-text">
+            I'm Diego Arguera, a Software Engineer focused on Java, Spring Boot, REST APIs,
+            validation workflows, and Angular applications for business-critical platforms.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:diegoac053@gmail.com">Let's talk</a>
+            <a class="button secondary" href="/CV.html" download="Diego-Arguera-CV.html">Download CV</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="availability">
+            <span></span>
+            Open to backend and full-stack roles
+          </div>
+          <div class="profile-mark">DA</div>
+          <h2>Software Engineer</h2>
+          <p>Java / Spring Boot / Angular / AWS / PostgreSQL</p>
+          <dl>
+            <div><dt>Experience</dt><dd>3+ years</dd></div>
+            <div><dt>Location</dt><dd>El Salvador</dd></div>
+            <div><dt>English</dt><dd>Advanced</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="metrics-band">
+      <article><strong>3+</strong><span>years building enterprise backend systems</span></article>
+      <article><strong>4</strong><span>industries supported across client platforms</span></article>
+      <article><strong>Java 17</strong><span>Spring Boot APIs with Angular frontends</span></article>
+    </section>
+
+    <section class="section intro-section">
+      <p class="section-kicker">Profile</p>
+      <div>
+        <h2>Clean services, practical architecture, and business logic that holds up in production.</h2>
+        <p>
+          I translate business requirements into maintainable backend services, with focus on
+          validation-heavy workflows, API design, and scalable delivery.
+        </p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section two-column" id="experience">
+      <div>
+        <p class="section-kicker">Experience</p>
+        <h2>Reliable backend systems for real business workflows.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item" *ngFor="let item of experiences; trackBy: trackByCompany">
+          <div class="timeline-heading">
+            <div>
+              <h3>{{ item.role }}</h3>
+              <p>{{ item.company }} / {{ item.location }}</p>
             </div>
+            <span>{{ item.period }}</span>
           </div>
 
-          <aside class="hero-card" aria-label="Professional snapshot">
-            <div class="availability">
-              <span></span>
-              Open to backend and full-stack roles
-            </div>
-            <div class="profile-mark">DA</div>
-            <h2>Software Engineer</h2>
-            <p>Java / Spring Boot / Angular / AWS / PostgreSQL</p>
-            <dl>
-              <div>
-                <dt>Experience</dt>
-                <dd>3+ years</dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>El Salvador</dd>
-              </div>
-              <div>
-                <dt>English</dt>
-                <dd>Advanced</dd>
-              </div>
-            </dl>
-          </aside>
-        </div>
-      </section>
-
-      <section class="metrics-band" aria-label="Career summary">
-        <article>
-          <strong>3+</strong>
-          <span>years building enterprise backend systems</span>
+          <ul>
+            <li *ngFor="let highlight of item.highlights">{{ highlight }}</li>
+          </ul>
         </article>
-        <article>
-          <strong>4</strong>
-          <span>industries supported across client platforms</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <p class="section-kicker">Projects</p>
+        <h2>Selected work with measurable engineering depth.</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card" *ngFor="let project of projects; trackBy: trackByProject">
+          <p>{{ project.stack }}</p>
+          <h3>{{ project.name }}</h3>
+          <ul>
+            <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
+          </ul>
         </article>
-        <article>
-          <strong>Java 17</strong>
-          <span>Spring Boot APIs with Angular frontends</span>
+      </div>
+    </section>
+
+    <!-- WEBSITES -->
+    <section class="section web-showcase" id="websites">
+      <div class="section-heading">
+        <p class="section-kicker">Web portfolio</p>
+        <h2>Other pages and applications I have built.</h2>
+      </div>
+
+      <div class="website-grid">
+        <article class="website-card" *ngFor="let site of webProjects; trackBy: trackByWeb">
+          
+          <div class="website-card-top">
+            <span>{{ site.type }}</span>
+            <strong>{{ site.status }}</strong>
+          </div>
+
+          <h3>{{ site.name }}</h3>
+          <p>{{ site.description }}</p>
+
+          <div class="website-stack">
+            <span *ngFor="let tech of site.stack">{{ tech }}</span>
+          </div>
+
+          <div class="website-actions">
+            <a *ngIf="site.liveUrl; else noLive" [href]="site.liveUrl" target="_blank">Live site</a>
+            <ng-template #noLive>
+              <span>Live site pending</span>
+            </ng-template>
+
+            <a *ngIf="site.repoUrl" [href]="site.repoUrl" target="_blank">Repository</a>
+          </div>
+
         </article>
-      </section>
+      </div>
+    </section>
 
-      <section class="section intro-section">
-        <p class="section-kicker">Profile</p>
-        <div>
-          <h2>Clean services, practical architecture, and business logic that holds up in production.</h2>
-          <p>
-            I translate business requirements into maintainable backend services, with special focus on
-            validation-heavy workflows, API design, data integrity, code review, and scalable delivery.
-          </p>
-        </div>
-      </section>
+    <!-- SKILLS -->
+    <section class="section two-column" id="skills">
+      <div>
+        <p class="section-kicker">Skills</p>
+        <h2>Technologies I use to design, build, and ship.</h2>
+      </div>
 
-      <section class="section two-column" id="experience">
-        <div>
-          <p class="section-kicker">Experience</p>
-          <h2>Reliable backend systems for real business workflows.</h2>
-        </div>
-        <div class="timeline">
-          @for (item of experiences; track item.company) {
-            <article class="timeline-item">
-              <div class="timeline-heading">
-                <div>
-                  <h3>{{ item.role }}</h3>
-                  <p>{{ item.company }} / {{ item.location }}</p>
-                </div>
-                <span>{{ item.period }}</span>
-              </div>
-              <ul>
-                @for (highlight of item.highlights; track highlight) {
-                  <li>{{ highlight }}</li>
-                }
-              </ul>
-            </article>
-          }
-        </div>
-      </section>
+      <div class="skills-grid">
+        <article *ngFor="let group of skills; trackBy: trackBySkill">
+          <h3>{{ group.label }}</h3>
+          <div class="skill-list">
+            <span *ngFor="let skill of group.items">{{ skill }}</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <section class="section" id="projects">
-        <div class="section-heading">
-          <p class="section-kicker">Projects</p>
-          <h2>Selected work with measurable engineering depth.</h2>
-        </div>
-        <div class="project-grid">
-          @for (project of projects; track project.name) {
-            <article class="project-card">
-              <p>{{ project.stack }}</p>
-              <h3>{{ project.name }}</h3>
-              <ul>
-                @for (highlight of project.highlights; track highlight) {
-                  <li>{{ highlight }}</li>
-                }
-              </ul>
-            </article>
-          }
-        </div>
-      </section>
-
-      <section class="section web-showcase" id="websites">
-        <div class="section-heading">
-          <p class="section-kicker">Web portfolio</p>
-          <h2>Other pages and applications I have built.</h2>
-        </div>
-        <div class="website-grid">
-          @for (site of webProjects; track site.name + site.type) {
-            <article class="website-card">
-              <div class="website-card-top">
-                <span>{{ site.type }}</span>
-                <strong>{{ site.status }}</strong>
-              </div>
-              <h3>{{ site.name }}</h3>
-              <p>{{ site.description }}</p>
-              <div class="website-stack">
-                @for (tech of site.stack; track tech) {
-                  <span>{{ tech }}</span>
-                }
-              </div>
-              <div class="website-actions">
-                @if (site.liveUrl) {
-                  <a [href]="site.liveUrl" target="_blank" rel="noreferrer">Live site</a>
-                } @else {
-                  <span>Live site pending</span>
-                }
-                @if (site.repoUrl) {
-                  <a [href]="site.repoUrl" target="_blank" rel="noreferrer">Repository</a>
-                }
-              </div>
-            </article>
-          }
-        </div>
-      </section>
-
-      <section class="section two-column" id="skills">
-        <div>
-          <p class="section-kicker">Skills</p>
-          <h2>Technologies I use to design, build, and ship.</h2>
-        </div>
-        <div class="skills-grid">
-          @for (group of skills; track group.label) {
-            <article>
-              <h3>{{ group.label }}</h3>
-              <div class="skill-list">
-                @for (skill of group.items; track skill) {
-                  <span>{{ skill }}</span>
-                }
-              </div>
-            </article>
-          }
-        </div>
-      </section>
-
-      <section class="section education">
-        <div>
-          <p class="section-kicker">Education</p>
-          <h2>Continuous technical growth.</h2>
-        </div>
-        <div class="education-list">
-          <article>
-            <span>Jan. 2025 - Currently</span>
-            <h3>Bachelor's Degree in Software Engineering</h3>
-            <p>Universidad Evangelica de El Salvador</p>
-          </article>
-          <article>
-            <span>Jan. 2019 - Dec. 2021</span>
-            <h3>Bachelor's Degree in Computer Science</h3>
-            <p>Universidad Don Bosco</p>
-          </article>
-          <article>
-            <span>2022</span>
-            <h3>Computer Science Fundamentals Bootcamp</h3>
-            <p>Kodigo</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="cta-section" aria-label="Contact Diego Arguera">
-        <div>
-          <p class="section-kicker">Recruiters</p>
-          <h2>Need a backend engineer who can own complex validation and API work?</h2>
-        </div>
-        <div class="cta-actions">
-          <a class="button primary" href="mailto:diegoac053@gmail.com">Email me</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/diego-canjura/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-      </section>
-    </main>
+    <!-- CTA -->
+    <section class="cta-section">
+      <div>
+        <p class="section-kicker">Recruiters</p>
+        <h2>Need a backend engineer who can own complex validation and API work?</h2>
+      </div>
+      <div class="cta-actions">
+        <a class="button primary" href="mailto:diegoac053@gmail.com">Email me</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/diego-canjura/" target="_blank">LinkedIn</a>
+      </div>
+    </section>
+  </main>
   `
 })
 export class AppComponent {
@@ -348,6 +303,22 @@ export class AppComponent {
   protected readonly projects = projects;
   protected readonly skills = skills;
   protected readonly webProjects = webProjects;
+
+  trackByCompany(index: number, item: any) {
+    return item.company;
+  }
+
+  trackByProject(index: number, item: any) {
+    return item.name;
+  }
+
+  trackByWeb(index: number, item: any) {
+    return item.name;
+  }
+
+  trackBySkill(index: number, item: any) {
+    return item.label;
+  }
 }
 
 bootstrapApplication(AppComponent).catch((error) => console.error(error));
