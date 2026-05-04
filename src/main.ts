@@ -115,7 +115,7 @@ const webProjects: WebProject[] = [
     description: 'Landing page for a dance academy focused on branding, responsive design, and modern UI.',
     stack: ['React 18', 'Vite', 'React Router DOM', 'React Icons', 'CSS3'],
     status: 'Live',
-    liveUrl: 'https://factorxsv.infinityfree.me/',
+    liveUrl: 'https://factorx-sv.vercel.app/',
     imageUrl: '/factorx-preview.png'
   },
   {
