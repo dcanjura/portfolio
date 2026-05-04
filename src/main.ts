@@ -28,6 +28,7 @@ type WebProject = {
   description: string;
   stack: string[];
   status: string;
+  imageUrl?: string;
   liveUrl?: string;
   repoUrl?: string;
 };
@@ -109,11 +110,13 @@ const webProjects: WebProject[] = [
     status: 'In progress'
   },
   {
-    name: 'Project placeholder',
+    name: 'Factor X Website',
     type: 'Web application',
-    description: 'Replace this card with one of your deployed websites, dashboards, landing pages, or full-stack applications.',
-    stack: ['Angular', 'Java', 'Spring Boot'],
-    status: 'Add link'
+    description: 'Landing page for a dance academy focused on branding, responsive design, and modern UI.',
+    stack: ['React 18', 'Vite', 'React Router DOM', 'React Icons', 'CSS3'],
+    status: 'Live',
+    liveUrl: 'https://factorxsv.infinityfree.me/',
+    imageUrl: '/factorx-preview.png'
   },
   {
     name: 'Project placeholder',
@@ -244,26 +247,29 @@ const webProjects: WebProject[] = [
 
       <div class="website-grid">
         <article class="website-card" *ngFor="let site of webProjects; trackBy: trackByWeb">
+          <img *ngIf="site.imageUrl" [src]="site.imageUrl" alt="project preview" class="card-image" />
           
-          <div class="website-card-top">
-            <span>{{ site.type }}</span>
-            <strong>{{ site.status }}</strong>
-          </div>
+          <div class="website-card-body">
+            <div class="website-card-top">
+              <span>{{ site.type }}</span>
+              <strong>{{ site.status }}</strong>
+            </div>
 
-          <h3>{{ site.name }}</h3>
-          <p>{{ site.description }}</p>
+            <h3>{{ site.name }}</h3>
+            <p>{{ site.description }}</p>
 
-          <div class="website-stack">
-            <span *ngFor="let tech of site.stack">{{ tech }}</span>
-          </div>
+            <div class="website-stack">
+              <span *ngFor="let tech of site.stack">{{ tech }}</span>
+            </div>
 
-          <div class="website-actions">
-            <a *ngIf="site.liveUrl; else noLive" [href]="site.liveUrl" target="_blank">Live site</a>
-            <ng-template #noLive>
-              <span>Live site pending</span>
-            </ng-template>
+            <div class="website-actions">
+              <a *ngIf="site.liveUrl; else noLive" [href]="site.liveUrl" target="_blank">Live site</a>
+              <ng-template #noLive>
+                <span>Live site pending</span>
+              </ng-template>
 
-            <a *ngIf="site.repoUrl" [href]="site.repoUrl" target="_blank">Repository</a>
+              <a *ngIf="site.repoUrl" [href]="site.repoUrl" target="_blank">Repository</a>
+            </div>
           </div>
 
         </article>
